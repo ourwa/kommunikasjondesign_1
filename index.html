@@ -4,126 +4,115 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kommunikasjonsdesign</title>
-  <!-- Felles stilark for hele prosjektet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<script>
-// Enkel scroll-animasjon: gjør elementer med .fade-in synlige når de kommer inn i viewport
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".fade-in");
 
-  const showOnScroll = () => {
-    const trigger = window.innerHeight * 0.90; // terskel: 90% av vindushøyden
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect().top;
-      if (rect < trigger) el.classList.add("visible"); // legg til klasse når kortet er synlig
-    });
-  };
-
-  showOnScroll();                // kjør ved load
-  window.addEventListener("scroll", showOnScroll); // kjør ved scrolling
-});
-</script>
 
 <body class="page-index">
-  <!-- Topp-header for forsiden med tittel og gruppemedlemmer -->
   <header>
     <h1>Kommunikasjonsdesign</h1>
     <p class="lead">
-      Julie Riise: Producer<br>
-      Madelen Kristiansen: Designer<br>
-      Joakim Skjær Svendsen: Designer<br>
-      Ourwa Baath: Web Developer
-    </p>
+  Julie Riise: Producer<br>
+  Madelen Kristiansen: Designer<br>
+  Joakim Skjær Svendsen: Designer<br>
+  Ourwa Baath: Web Developer
+</p>
+    <p class="lead"></p>
   </header>
 
   <main>
-    <!-- Grid-seksjon som viser alle artikler/temaer som kort -->
     <section class="grid" aria-label="topics links">
 
-      <!-- Kort 1: Storytelling / gamingartikkel -->
       <a href="main_topic.html" class="card-link">
-        <article class="card fade-in">
+       <article class="card fade-in">
+          
           <figure>
-            <img src="assets/images/DSC02604.JPG"
-                 alt="Overbilde for artikkel om gamingmiljøet på LANMine"
-                 loading="lazy"/>
+            <img src="assets/images/DSC02604.JPG" alt="over image for Video games - Storytelling" loading="lazy"/>
             <figcaption>Foto: Illustrasjonsfoto.</figcaption>
           </figure>
           <h2>Fra netthets til vennskap - to sider av gamingmiljøet</h2>
+          
+
           <div class="content">
-            <!-- Her kan du evt. legge til kort ingress/teasertekst senere -->
+           
           </div>
         </article>
       </a>
 
-      <!-- Kort 2: Generativ AI -->
       <a href="topic-a.html" class="card-link">
         <article class="card fade-in">
+        
           <figure>
-            <img src="assets/images/pc.jpg"
-                 alt="Forsidebilde til artikkel om generativ AI"
-                 loading="lazy"/>
+            <img src="assets/images/pc.jpg" alt="Cover image for AI - Fact" loading="lazy"/>
             <figcaption></figcaption>
           </figure>
-          <h2>Generativ AI og hvordan det kan brukes</h2>
+            <h2>Generativ AI og hvordan det kan brukes</h2>
           <div class="content">
-            <!-- Plass til kort sammendrag om AI-artikkelen -->
+            
           </div>
         </article>
       </a>
 
-      <!-- Kort 3: Unge i NAV-systemet -->
       <a href="topic-b.html" class="card-link">
         <article class="card fade-in">
+          
           <figure>
-            <img src="assets/images/nav.jpg"
-                 alt="Forsidebilde til artikkel om unge i NAV-systemet"
-                 loading="lazy"/>
+            <img src="assets/images/nav.jpg" alt="Cover image for Young adults on social security -fact" loading="lazy"/>
             <figcaption></figcaption>
           </figure>
           <h2>Unge i NAV-systemet</h2>
           <div class="content">
-            <!-- Plass til kort sammendrag om NAV-artikkelen -->
+            
           </div>
         </article>
       </a>
 
-      <!-- (Reservetema topic-d om du ønsker å bruke det senere)
+     
+
       <a href="topic-d.html" class="card-link">
         <article class="card fade-in">
-          ...
-        </article>
-      </a>
-      -->
-
-      <!-- Kort 4: Elbilens utvikling -->
+          
+      
       <a href="topic-e.html" class="card-link">
         <article class="card fade-in">
+          
           <figure>
-            <img src="assets/images/biler_1.jpg"
-                 alt="Forsidebilde til artikkel om elbiler i Norge"
-                 loading="lazy"/>
+            <img src="assets/images/biler_1.jpg" alt="Elbil bilde" loading="lazy"/>
             <figcaption></figcaption>
           </figure>
           <h2>Elbilens utvikling i Norge</h2>
           <div class="content">
-            <!-- Plass til kort sammendrag om elbil-artikkelen -->
+         
           </div>
         </article>
       </a>
 
     </section>
   </main>
-
   <footer>
-    <p>
-      <a href="https://drive.google.com/drive/folders/11bK_CMoGWpPTWOaopeVPmTf_E5b9szKs?usp=sharing"
-         target="_blank">
-        © 2025 Kommunikasjonsdesign-mappe i Google Drive
-      </a>
-    </p>
-  </footer>
+  <p>
+    <a href="https://drive.google.com/drive/folders/11bK_CMoGWpPTWOaopeVPmTf_E5b9szKs?usp=sharing" target="_blank"> © 2025 Kommunikasjonsdesign-mappe i google Drive</a>
+  </p>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const showOnScroll = () => {
+    const trigger = window.innerHeight * 0.90;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect().top;
+      if (rect < trigger) el.classList.add("visible");
+    });
+  };
+
+  showOnScroll();
+  window.addEventListener("scroll", showOnScroll);
+});
+</script>
+
 </body>
 </html>

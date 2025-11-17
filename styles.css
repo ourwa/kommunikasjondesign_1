@@ -1163,21 +1163,27 @@ body.nav{
 }
 
 /* ------- sideheader ------- */
-body.nav .nav-header{
+body.nav .nav-header {
   max-width: 1000px;
   margin: 0 auto;
   padding: 4rem 1rem 2rem;
   text-align: center;
+ 
 }
+
 body.nav .nav-header h1{
   font-size: clamp(1.9rem, 3vw, 2.8rem);
-  line-height: 1.2;
+ 
+  line-height: 1.7;
   margin: 0 0 1rem;
+  
 }
 body.nav .nav-header .lead{
   max-width: 70ch;
   margin: 0 auto;
   opacity:.85;
+
+  
 }
 
 /* ------- seksjonscontainer ------- */
@@ -1466,8 +1472,16 @@ body.nav .fx-fade {
 
 /* 3) klipp sektoren innenfor en sirkel (hvis tynn kant dukker opp) */
 .simg-figure::before{
-  clip-path: circle(50% at 50% 50%);
-  background-color: transparent !important;
+  clip-path: circle(800% at 50% 50vh);
+ 
+}
+.simg-figure {
+  transform: translateY(40px); /* Moves down by 40px */
+}
+@media (max-width: 768px) {
+  .simg-figure {
+    margin-top: -5000%; /* or transform: translateY(20px); */
+  }
 }
 
 .nav-section p {
@@ -2095,4 +2109,70 @@ figure,
   line-height: 1.6;
   text-align: center;
   color: #d8d8d8;
+}
+
+
+
+
+
+/* الخلفية الأساسية لصفحة B فقط */
+body.nav.page-topic-b {
+  background-color: #6f1010;
+}
+
+/* خلي كل أقسام صفحة B نفس الخلفية */
+body.nav.page-topic-b .nav-main,
+body.nav.page-topic-b .nav-section,
+body.nav.page-topic-b #nav-hero,
+body.nav.page-topic-b #text-unge,
+body.nav.page-topic-b #text-psyche,
+body.nav.page-topic-b #text-ledighet,
+body.nav.page-topic-b #map,
+body.nav.page-topic-b #links,
+body.nav.page-topic-b footer {
+  background-color: #6f1010;
+}
+
+/* عناصر الصورة المتحركة بدون خلفية إضافية */
+body.nav.page-topic-b .simg-wrap,
+body.nav.page-topic-b .simg-figure,
+body.nav.page-topic-b .simg-img {
+  background: transparent;
+}
+
+/* الفقرة فوق صورة الـ NAV: نفس لون الخلفية أو شفافة */
+body.nav.page-topic-b .simg-figure > p {
+  background-color: #6f1010;   /* أو transparent لو بدك تشوف الصورة وراها أكثر */
+  color: #fff;
+}
+
+/* خلفية صفحة topic-b */
+body.page-topic-b {
+  background-color: #6f1010 !important;
+}
+
+/* إزالة الخلفيات السوداء من قسم الـ scroll-image */
+
+
+/* الصورة نفسها بدون خلفية */
+body.page-topic-b .simg-img {
+  background: transparent !important;
+}
+
+/* المربعين السود حول الصورة (قبل/بعد) */
+body.page-topic-b .simg-figure > * {
+  background: transparent !important;
+}
+
+/* الفقرة فوق الصورة نفس الخلفية */
+body.page-topic-b .simg-figure > p {
+  background-color: #6f1010 !important;
+  color: #fff;
+}
+
+body.nav.page-topic-b .simg-wrap,
+body.nav.page-topic-b .simg-figure {
+  background-color: #6f1010 !important;
+  border: none !important;
+  box-shadow: none !important;
 }

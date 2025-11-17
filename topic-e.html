@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Elbilens utvikling i Norge</title>
   <link rel="stylesheet" href="styles.css"/>
-  <!--chart.js for chart/infoviz demos-->
+  <!-- chart.js brukt til diagram/infoviz -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -23,26 +23,22 @@
         <h1>Elbilens utvikling i Norge</h1>
     </header>
     <main>
-        <!--base-->
+        <!-- basisseksjon -->
         <section id="base" aria-labelledby="base-title">
           <section class="full-banner">
   <figure>
     <img src="assets/images/biler_1.jpg" alt="elbil" loading="lazy">
-    <figcaption></figcaption>
+    <p>
+  
+   
+    <figcaption> <h2> <p>I 2010 rullet de første registrerte elbilene ut på norske veier. På denne tiden var det diesel- og bensinbiler som dominerte trafikkbildet. I dag er det flere registrerte elbiler enn rene bensinbiler i Norge.</p></h2></figcaption>
   </figure>
 </section>
            
   
 
            
-            <figure>
-       
-
-
-        <p>I 2010 rullet de første registrerte elbilene ut på norske veier. På denne tiden var det diesel- og bensinbiler som dominerte trafikkbildet. I dag er det flere registrerte elbiler enn rene bensinbiler i Norge.</p>
-        <figcaption></figcaption>
-      </figure>
-
+ 
 
 
 
@@ -122,7 +118,7 @@ Antallet registrerte elbiler steg fra 3 347 i 2010 til 73 312 i 2015, noe som vi
   </div>
 </section>
  <img src="assets/images/bil.JPG" alt="elbil" loading="lazy" /> 
-         <!--text-->
+         <!-- tekstseksjon -->
         <section id="text" aria-labelledby="text-title">
             <h2 id="text-title">Geografiske forhold kan spille inn</h2>
             <p>Mange velger å kjøpe elbiler på grunn av geografiske forhold, særlig pendlere som kjører mellom hjem og arbeidsplass. Statistikken viser at det er flest elbileiere i Akershus, som grenser til Oslo. På andreplass kommer Vestlandet. Man kunne kanskje tro at Oslo selv ville ligge øverst på listen, men ettersom hovedstaden har et godt kollektivtilbud og med korte avstander er det naturlig at mange heller velger buss, trikk eller T-bane fremfor bil. Likevel ligger Oslo på en solid tredjeplass, med hele 112 045 registrerte elbiler.</p>
@@ -131,12 +127,12 @@ Antallet registrerte elbiler steg fra 3 347 i 2010 til 73 312 i 2015, noe som vi
 
         
 <section id="elbil-map-section" aria-labelledby="elbil-map-title">
-  <!-- العنوان في منتصف الصفحة فوق العمودين -->
+  <!-- tittelen i midten av siden over begge kolonner -->
   <h2 id="elbil-map-title" class="elbil-map-title">
     Fylker høyest – lavest elbileiere
   </h2>
 
-  <!-- صف: يسار نص – يمين خريطة -->
+  <!-- rad: tekst til venstre – kart til høyre -->
   <div class="elbil-map-row">
     <div class="left-side">
       <div class="info-box">
@@ -156,10 +152,10 @@ Antallet registrerte elbiler steg fra 3 347 i 2010 til 73 312 i 2015, noe som vi
  
 
   <div class="map-wrapper">
-    <!-- الخريطة -->
+    <!-- kartet -->
     <div id="finnmark-map"></div>
 
-    <!-- بوكس النص -->
+    <!-- tekstboks -->
     <div class="map-info-box">
       <p>
         I Finnmark finner vi det laveste antallet elbileiere i landet. 
@@ -170,7 +166,7 @@ Antallet registrerte elbiler steg fra 3 347 i 2010 til 73 312 i 2015, noe som vi
   </div>
 </section>
        
-<!--data table-->
+<!-- datatabell for diagrammet -->
        
 
   <table id="county-table" class="visually-hidden">
@@ -244,10 +240,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const norm = s => (s || '').toLowerCase().trim();
 
-  // الفيلكات الثلاثة بالأخضر
+  // De tre fylkene markeres i grønt
   const greenSet = new Set(['akershus', 'vestland', 'oslo']);
 
-  // إنشاء الخريطة بدون تفاعل تمامًا
+  // Oppretter kartet helt uten interaksjon
   const map = L.map('elbil-map', {
     zoomControl: false,
     attributionControl: false,
@@ -258,7 +254,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     keyboard: false
   });
 
-  // رسم الفيلكات بنفس شكل خريطة Finnmark
+  // Tegner fylkene med samme stil som Finnmark-kartet
   const layer = L.geoJSON(geo, {
     style: feature => {
       const name = norm(feature.properties.navn || feature.properties.fylkesnavn);
@@ -273,7 +269,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }).addTo(map);
 
-  // تثبيت الإطار على كامل النرويج
+  // Låser utsnittet til hele Norge
   const bounds = layer.getBounds();
   map.fitBounds(bounds, { padding: [10,10] });
 });
@@ -292,7 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const mapDiv = document.getElementById('finnmark-map');
   if (!mapDiv || !window.L) return;
 
-  // إنشاء الخريطة بدون زووم حر
+  // Oppretter kartet uten fri zoom
   const map = L.map('finnmark-map', {
     zoomControl: false,
     scrollWheelZoom: false,
@@ -303,7 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     attributionControl: false
   });
 
-  // تحميل GeoJSON نفسه اللي استخدمته في صفحة B
+  // Laster inn samme GeoJSON-fil som brukt på side B
   const res = await fetch('assets/geo/fylker_2024.geojson', { cache: 'no-store' });
   if (!res.ok) {
     console.error('Kunne ikke laste fylker_2024.geojson');
@@ -311,7 +307,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   const geo = await res.json();
 
-  // نعمل normalisering للأسماء
+  // Normaliserer navnene
   const normalize = s =>
     (s || '')
       .toLowerCase()
@@ -324,13 +320,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const layer = L.geoJSON(geo, {
     style: f => {
       const name = normalize(f.properties.navn || f.properties.fylkesnavn);
-      // نعتبرها Finnmark لو الاسم يحتوي "finnmark"
+      // Tolker et område som Finnmark hvis navnet inneholder "finnmark"
       const isFinnmark = name.includes('finnmark');
 
       return {
-        color: '#000',                                  // حدود سوداء خفيفة
+        color: '#000',                                  // Tynne svarte grenser
         weight: 0.6,
-        fillColor: isFinnmark ? '#e11d48' : '#777',     // Finnmark أحمر، الباقي رمادي
+        fillColor: isFinnmark ? '#e11d48' : '#777',     // Finnmark i rødt, resten i grått
         fillOpacity: isFinnmark ? 0.95 : 0.65
       };
     },
@@ -375,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const labels = [];
   const values = [];
 
-  // دالة بسيطة لتنظيف الأرقام "143 532" → 143532
+  // Enkel funksjon som rydder tall "143 532" → 143532
   const parseNum = txt =>
     Number(String(txt).replace(/\s/g, '').replace(',', '.')) || 0;
 
@@ -432,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
           text: 'Elbilbestand etter fylke',
           color: '#ffffff',   
           font: {
-        size: 28,     // هنا تغيّر الحجم
+        size: 28,     // Her justeres skriftstørrelsen
         weight: 'bold'
       }
         }

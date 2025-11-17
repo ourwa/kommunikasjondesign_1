@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unge i NAV</title>
+  <title>Unge i NAV-systemet</title>
 
   <link rel="stylesheet" href="styles.css"/>
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <meta name="format-detection" content="telephone=no">
 
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- ارتفاع الخريطة فقط وبدون إطار -->
+  <!-- Kun høyde for kartet, ingen ramme -->
   <style>
     #leaflet-map{height:520px;width:100%;background:#fff;border:none;border-radius:0}
     .leaflet-container{background:#fff!important}
   </style>
 
-
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body class="nav page-topic-b">
@@ -34,22 +32,20 @@
   <main class="nav-main">
     <!-- HERO -->
     <section id="nav-hero">
-  <div class="nav-panel">
+      <div class="nav-panel">
+        <figure>
+          <img src="assets/images/nav.jpg" alt="NAV illustrasjonsfoto" loading="eager" />
+        </figure>
 
-    <figure>
-      <img src="assets/images/nav.jpg" alt="NAV illustrasjonsfoto" loading="eager" />
-    </figure>
-
-    <div class="nav-panel-text">
-      <p>
-        I 2020 ble utbetalingen av arbeidsavklaringspenger (AAP) redusert for personer under 25,
-        men antallet som mottar støtteordningen har økt til tross for dette.
-        Hvordan har det blitt slik, og hvorfor har ikke trenden snudd?
-      </p>
-    </div>
-
-  </div>
-</section>
+        <div class="nav-panel-text">
+          <p>
+            I 2020 ble utbetalingen av arbeidsavklaringspenger (AAP) redusert for personer under 25,
+            men antallet som mottar støtteordningen har økt til tross for dette.
+            Hvordan har det blitt slik, og hvorfor har ikke trenden snudd?
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Tekst 1 -->
     <section id="text-unge" aria-labelledby="text-unge-title" class="nav-section">
@@ -64,16 +60,15 @@
       <p>
         Fylkene med flest unge uføre i alderen 20–29 år er på Vestlandet. Deretter kommer Akershus og Trøndelag. I Agder
         er andelen uføre høyest relativt til befolkningen i 2024, deretter Østfold.Både Agder og Østfold har vært fylkene med flest uføretrygdet de siste 9 årene. 
-
       </p>
     </section>
-        <!-- Leaflet Map: النرويج فقط بدون بوردر -->
+
+    <!-- Leaflet-kart: kun Norge, uten ramme -->
     <section id="map" aria-labelledby="map-title" class="nav-section">
       <h2 id="map-title">Fylker med uføre i fylkene for år 2024</h2>
-      <!-- ملاحظة: لتجنّب تضارب id، استخدمت div منفصل للخريطة -->
+      <!-- Merk: for å unngå ID-konflikt er det brukt en egen div for kartet -->
       <div id="leaflet-map" role="region" aria-label="Norge – fylker"></div>
     </section>
-
 
     <!-- Tekst 2 + Crossfade -->
     <section id="text-psyche" aria-labelledby="text-psyche-title" class="nav-section">
@@ -95,40 +90,35 @@
         </div>
       </section>
 
-     
+      <!-- Scroll Percent Image: starter og slutter kun innenfor denne seksjonen -->
+      <section class="simg-wrap" aria-label="Scroll percent image">
+        <figure class="simg-figure">
+          <p>
+            Det er en ting som går igjen i flere rapporter og studier, nemlig psykisk helse. Ifølge en rapport fra
+            Riksrevisjonen har nesten 70% av unge mottakere av AAP psykiske lidelser, noe som understreker at det er et
+            stort behov for bedre helsetjenester og støtteordninger for denne gruppen. I Norge skal alle ha tilgang på
+            gratis psykisk helsehjelp, men tilgjengeligheten og kvaliteten varierer betydelig mellom kommunene, og
+            ventetiden er ofte lang.
+          </p>
+          <img src="assets/images/scrol_nav.png" alt="Illustrasjon" class="simg-img" loading="lazy">
 
-        <!-- Scroll Percent Image: يبدأ وينتهي ضمن هذا القسم فقط -->
-<section class="simg-wrap" aria-label="Scroll percent image">
-   
+          <!-- SVG-sektor over bildet med sirkulært klipp for å hindre lekkasje -->
+          <svg class="simg-pie" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <clipPath id="simgClip">
+                <circle cx="90" cy="50" r="50"></circle>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#simgClip)">
+              <path class="simg-wedge" fill="#e74c3c" d=""></path>
+            </g>
+          </svg>
 
-  <figure class="simg-figure">
-    <p>
-        Det er en ting som går igjen i flere rapporter og studier, nemlig psykisk helse. Ifølge en rapport fra
-        Riksrevisjonen har nesten 70% av unge mottakere av AAP psykiske lidelser, noe som understreker at det er et
-        stort behov for bedre helsetjenester og støtteordninger for denne gruppen. I Norge skal alle ha tilgang på
-        gratis psykisk helsehjelp, men tilgjengeligheten og kvaliteten varierer betydelig mellom kommunene, og
-        ventetiden er ofte lang. </p>
-    <img src="assets/images/scrol_nav.png" alt="Illustrasjon" class="simg-img" loading="lazy">
-
-    <!-- قطاع SVG فوق الصورة مع قصّ بالدائرة لعدم التسريب -->
-    <svg class="simg-pie" viewBox="0 0 100 100" aria-hidden="true">
-      <defs>
-        <clipPath id="simgClip">
-          <circle cx="90" cy="50" r="50"></circle>
-        </clipPath>
-      </defs>
-      <g clip-path="url(#simgClip)">
-        <path class="simg-wedge" fill="#e74c3c" d=""></path>
-      </g>
-    </svg>
-
-    <figcaption class="simg-overlay" aria-live="polite">
-      <span id="simg-pct">iugiygiyujcu</span>
-    </figcaption>
-  </figure>
-</section>
-
-       
+          <figcaption class="simg-overlay" aria-live="polite">
+            <span id="simg-pct">iugiygiyujcu</span>
+          </figcaption>
+        </figure>
+      </section>
     </section>
 
     <!-- Data table (hidden, source for map) -->
@@ -178,7 +168,6 @@
       </p>
     </section>
 
-
     <!-- Kilder -->
     <section id="links" aria-labelledby="links-title" class="nav-section">
       <h2 id="links-title">Kilder</h2>
@@ -192,11 +181,10 @@
   </main>
 
   <footer>
-  <p>
-    <a href="https://drive.google.com/drive/folders/11bK_CMoGWpPTWOaopeVPmTf_E5b9szKs?usp=sharing" target="_blank"> © 2025 Kommunikasjonsdesign-mappe i google Drive</a>
-  </p>
-</footer>
-
+    <p>
+      <a href="https://drive.google.com/drive/folders/11bK_CMoGWpPTWOaopeVPmTf_E5b9szKs?usp=sharing" target="_blank"> © 2025 Kommunikasjonsdesign-mappe i google Drive</a>
+    </p>
+  </footer>
 
   <!-- Crossfade JS -->
   <script>
@@ -250,308 +238,297 @@
   })();
   </script>
 
-  <!-- Scroll effects .fx-fade -->
+  <!-- Scroll-effekt for .fx-fade -->
   <script>
-function handleFadeOnScroll() {
-  const winH = window.innerHeight;
-  document.querySelectorAll('.fx-fade').forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < winH - 200) el.classList.add('show');
-    if (top > winH)       el.classList.remove('show');
-  });
-}
-
-document.addEventListener("scroll", handleFadeOnScroll);
-document.addEventListener("DOMContentLoaded", handleFadeOnScroll);
-</script>
-
-  <!-- Leaflet: Norge bare uten بوردر أو خلفية -->
-<script>
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1) Read data from table -> Map(name -> value)
-  const table = document.querySelector('#county-table');
-  if (!table) return;
-
-  const norm = s =>
-    (s || '')
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, ' ')
-      .replace(/\./g, '');
-
-  const alias = new Map([
-    ['vestlandet', 'vestland'] // name fix
-  ]);
-
-  const dataMap = new Map();
-  table.querySelectorAll('tbody tr').forEach(tr => {
-    const [nTd, vTd] = tr.querySelectorAll('td');
-    if (!nTd || !vTd) return;
-
-    let key = norm(nTd.textContent);
-    if (alias.has(key)) key = alias.get(key);
-
-    const val =
-      Number(
-        String(vTd.textContent)
-          .replace(/\s/g, '')
-          .replace(',', '.')
-          .replace(/[^\d.]/g, '')
-      ) || 0;
-
-    dataMap.set(key, val);
-  });
-
-  // 2) Top 4 fylker (largest values)
-  const top4 = [...dataMap.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 4)
-    .map(([k]) => k);
-
-  const isTop4 = new Set(top4);
-
-  // 3) Load GeoJSON
-  const res = await fetch('assets/geo/fylker_2024.geojson', { cache: 'no-store' });
-  if (!res.ok) {
-    console.error('Kunne ikke laste GeoJSON', res.status);
-    return;
+  function handleFadeOnScroll() {
+    const winH = window.innerHeight;
+    document.querySelectorAll('.fx-fade').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < winH - 200) el.classList.add('show');
+      if (top > winH)       el.classList.remove('show');
+    });
   }
-  const geo = await res.json();
 
-  // Build map: normalized key -> "short" display name (første del før " - ")
-  const nameByKey = {};
-  geo.features.forEach(f => {
-    const rawName = f.properties.navn || f.properties.fylkesnavn || 'Ukjent';
-    const key = norm(rawName);
-    if (!nameByKey[key]) {
-      nameByKey[key] = rawName.split(' - ')[0];
+  document.addEventListener("scroll", handleFadeOnScroll);
+  document.addEventListener("DOMContentLoaded", handleFadeOnScroll);
+  </script>
+
+  <!-- Leaflet: kun Norge, uten ramme eller bakgrunn -->
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    // 1) Leser data fra tabellen -> Map(navn -> verdi)
+    const table = document.querySelector('#county-table');
+    if (!table) return;
+
+    const norm = s =>
+      (s || '')
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, ' ')
+        .replace(/\./g, '');
+
+    const alias = new Map([
+      ['vestlandet', 'vestland'] // navne-fix
+    ]);
+
+    const dataMap = new Map();
+    table.querySelectorAll('tbody tr').forEach(tr => {
+      const [nTd, vTd] = tr.querySelectorAll('td');
+      if (!nTd || !vTd) return;
+
+      let key = norm(nTd.textContent);
+      if (alias.has(key)) key = alias.get(key);
+
+      const val =
+        Number(
+          String(vTd.textContent)
+            .replace(/\s/g, '')
+            .replace(',', '.')
+            .replace(/[^\d.]/g, '')
+        ) || 0;
+
+      dataMap.set(key, val);
+    });
+
+    // 2) Top 4 fylker (høyeste verdier)
+    const top4 = [...dataMap.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4)
+      .map(([k]) => k);
+
+    const isTop4 = new Set(top4);
+
+    // 3) Leser GeoJSON
+    const res = await fetch('assets/geo/fylker_2024.geojson', { cache: 'no-store' });
+    if (!res.ok) {
+      console.error('Kunne ikke laste GeoJSON', res.status);
+      return;
     }
-  });
+    const geo = await res.json();
 
-  // 4) Red gradient for non–top-4 fylker
-  const values = [...dataMap.values()];
-  const vmin = Math.min(...values);
-  const vmax = Math.max(...values, 1);
-
-  // White -> soft pink -> medium red (for non-top4 with data)
-  const color = x => {
-    const t = Math.max(0, Math.min(1, (x - vmin) / (vmax - vmin || 1)));
-    const r = Math.round(255 - 100 * t);  // 255 → 155
-    const g = Math.round(240 - 140 * t);  // 240 → 100
-    const b = Math.round(240 - 140 * t);  // 240 → 100
-    return `rgb(${r},${g},${b})`;
-  };
-
-  // 5) Create map – frozen (no drag/zoom), only click
-  const map = L.map('leaflet-map', {
-    zoomControl: false,
-    attributionControl: false,
-    dragging: false,
-    scrollWheelZoom: false,
-    doubleClickZoom: false,
-    boxZoom: false,
-    keyboard: false,
-    touchZoom: false
-  });
-
-  map.getContainer().style.background = 'transparent';
-
-  // 6) Norway layer – top4 strong red, others gradient, no-data white
-  let hovered;
-  let resetTimeout;
-
-  const layer = L.geoJSON(geo, {
-    style: f => {
-      const n = norm(f.properties.navn || f.properties.fylkesnavn || '');
-      const hasVal = dataMap.has(n);
-      const v = hasVal ? (dataMap.get(n) ?? 0) : null;
-
-      let fillColor;
-      let fillOpacity = 1;
-
-      if (!hasVal || v === null) {
-        fillColor = '#ffffff';          // no data
-        fillOpacity = 0.9;
-      } else if (isTop4.has(n)) {
-        fillColor = '#dc2626';          // top 4
-      } else {
-        fillColor = color(v);           // others
+    // Lager mapping: normalisert nøkkel -> kort navn (første del før " - ")
+    const nameByKey = {};
+    geo.features.forEach(f => {
+      const rawName = f.properties.navn || f.properties.fylkesnavn || 'Ukjent';
+      const key = norm(rawName);
+      if (!nameByKey[key]) {
+        nameByKey[key] = rawName.split(' - ')[0];
       }
+    });
 
-      return {
-        color: 'transparent',
-        weight: 0,
-        fillColor,
-        fillOpacity
-      };
-    },
-    onEachFeature: (f, lyr) => {
-      const name = f.properties.navn || f.properties.fylkesnavn || 'Ukjent';
-      const key = norm(name);
-      const hasVal = dataMap.has(key);
-      const v = hasVal ? (dataMap.get(key) ?? 0) : null;
+    // 4) Rød gradient for fylker som ikke er i topp 4
+    const values = [...dataMap.values()];
+    const vmin = Math.min(...values);
+    const vmax = Math.max(...values, 1);
 
-      const tooltipLabel = hasVal
-        ? `${name}: ${v.toLocaleString('nb-NO')} %`
-        : `${name}: ingen data`;
+    // Hvit -> lys rosa -> middels rød (for øvrige fylker med data)
+    const color = x => {
+      const t = Math.max(0, Math.min(1, (x - vmin) / (vmax - vmin || 1)));
+      const r = Math.round(255 - 100 * t);  // 255 → 155
+      const g = Math.round(240 - 140 * t);  // 240 → 100
+      const b = Math.round(240 - 140 * t);  // 240 → 100
+      return `rgb(${r},${g},${b})`;
+    };
 
-      // Tooltip
-      lyr.bindTooltip(tooltipLabel, { sticky: true });
+    // 5) Oppretter kart – låst (ingen drag/zoom), kun klikk
+    const map = L.map('leaflet-map', {
+      zoomControl: false,
+      attributionControl: false,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      touchZoom: false
+    });
 
-      // Hover
-      lyr.on('mouseover', () => {
-        hovered = lyr;
-        lyr.setStyle({ color: '#1e3a8a', weight: 1.5, fillOpacity: 1 });
-        lyr.bringToFront();
-      });
+    map.getContainer().style.background = 'transparent';
 
-      lyr.on('mouseout', () => {
-        if (hovered === lyr) hovered = null;
+    // 6) Norge-lag – topp 4 i sterk rødt, andre med gradient, ingen data i hvitt
+    let hovered;
+    let resetTimeout;
 
+    const layer = L.geoJSON(geo, {
+      style: f => {
         const n = norm(f.properties.navn || f.properties.fylkesnavn || '');
-        const hasVal2 = dataMap.has(n);
-        const v2 = hasVal2 ? (dataMap.get(n) ?? 0) : null;
+        const hasVal = dataMap.has(n);
+        const v = hasVal ? (dataMap.get(n) ?? 0) : null;
 
         let fillColor;
         let fillOpacity = 1;
 
-        if (!hasVal2 || v2 === null) {
-          fillColor = '#ffffff';
+        if (!hasVal || v === null) {
+          fillColor = '#ffffff';          // ingen data
           fillOpacity = 0.9;
         } else if (isTop4.has(n)) {
-          fillColor = '#dc2626';
+          fillColor = '#dc2626';          // topp 4
         } else {
-          fillColor = color(v2);
+          fillColor = color(v);           // øvrige
         }
 
-        lyr.setStyle({
+        return {
           color: 'transparent',
           weight: 0,
           fillColor,
           fillOpacity
+        };
+      },
+      onEachFeature: (f, lyr) => {
+        const name = f.properties.navn || f.properties.fylkesnavn || 'Ukjent';
+        const key = norm(name);
+        const hasVal = dataMap.has(key);
+        const v = hasVal ? (dataMap.get(key) ?? 0) : null;
+
+        const tooltipLabel = hasVal
+          ? `${name}: ${v.toLocaleString('nb-NO')} %`
+          : `${name}: ingen data`;
+
+        // Tooltip
+        lyr.bindTooltip(tooltipLabel, { sticky: true });
+
+        // Hover-effekt
+        lyr.on('mouseover', () => {
+          hovered = lyr;
+          lyr.setStyle({ color: '#1e3a8a', weight: 1.5, fillOpacity: 1 });
+          lyr.bringToFront();
         });
-      });
 
-      // Click: zoom to fylke for 3 seconds, then back to full Norway
-      lyr.on('click', () => {
-        if (resetTimeout) {
-          clearTimeout(resetTimeout);
-        }
+        lyr.on('mouseout', () => {
+          if (hovered === lyr) hovered = null;
 
-        map.fitBounds(lyr.getBounds(), { padding: [20, 20] });
+          const n = norm(f.properties.navn || f.properties.fylkesnavn || '');
+          const hasVal2 = dataMap.has(n);
+          const v2 = hasVal2 ? (dataMap.get(n) ?? 0) : null;
 
-        resetTimeout = setTimeout(() => {
-          fit(); // back to full bounds
-        }, 3000);
-      });
-    }
-  }).addTo(map);
+          let fillColor;
+          let fillOpacity = 1;
 
-  // 7) Fit to Norway & resize handling
-  const bounds = layer.getBounds();
+          if (!hasVal2 || v2 === null) {
+            fillColor = '#ffffff';
+            fillOpacity = 0.9;
+          } else if (isTop4.has(n)) {
+            fillColor = '#dc2626';
+          } else {
+            fillColor = color(v2);
+          }
 
-  function fit() {
-    map.invalidateSize();
-    map.fitBounds(bounds, { padding: [0, 0] });
-  }
+          lyr.setStyle({
+            color: 'transparent',
+            weight: 0,
+            fillColor,
+            fillOpacity
+          });
+        });
 
-  map.setView([64.5, 16], 4);
-  requestAnimationFrame(fit);
-  setTimeout(fit, 120);
-  window.addEventListener('resize', fit);
+        // Klikk: zoom inn på fylket i 3 sekunder, deretter tilbake til Norge
+        lyr.on('click', () => {
+          if (resetTimeout) {
+            clearTimeout(resetTimeout);
+          }
 
-  map.setMaxBounds(bounds.pad(0.25));
-  map.setMinZoom(map.getBoundsZoom(bounds));
+          map.fitBounds(lyr.getBounds(), { padding: [20, 20] });
 
-  // 8) Legend: only fylker that have data, "Name: prosent %"
-  const legend = L.control({ position: 'bottomright' });
+          resetTimeout = setTimeout(() => {
+            fit(); // tilbake til hele Norge
+          }, 3000);
+        });
+      }
+    }).addTo(map);
 
-  legend.onAdd = () => {
-    const div = L.DomUtil.create('div');
-    div.style.cssText =
-      'background:#000c;color:#fff;padding:.7rem 1rem;border-radius:16px;font:14px system-ui;line-height:1.4;max-height:60vh;overflow:auto;';
+    // 7) Tilpass utsnitt til Norge + håndter endring av vindusstørrelse
+    const bounds = layer.getBounds();
 
-    let html = '<div style="font-weight:700;margin-bottom:.4rem">Fylker</div>';
-
-    // Build list from dataMap (only fylker with value)
-    const items = [...dataMap.entries()].map(([key, value]) => {
-      const name = nameByKey[key] || key;                 // short display name
-      const fillColor = isTop4.has(key) ? '#dc2626' : color(value);
-      return { key, name, value, fillColor };
-    });
-
-    // Sort by value desc
-    items.sort((a, b) => b.value - a.value);
-
-    // Render rows: "Navn: 14,1 %"
-    for (const item of items) {
-      const valueText = `${item.value.toLocaleString('nb-NO')} %`;
-      html += `
-        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem">
-          <span style="display:inline-block;width:20px;height:14px;background:${item.fillColor};border:1px solid rgba(255,255,255,.2);"></span>
-          <span>${item.name}: ${valueText}</span>
-        </div>
-      `;
+    function fit() {
+      map.invalidateSize();
+      map.fitBounds(bounds, { padding: [0, 0] });
     }
 
-    div.innerHTML = html;
-    return div;
-  };
+    map.setView([64.5, 16], 4);
+    requestAnimationFrame(fit);
+    setTimeout(fit, 120);
+    window.addEventListener('resize', fit);
 
-  legend.addTo(map);
-});
-</script>
+    map.setMaxBounds(bounds.pad(0.25));
+    map.setMinZoom(map.getBoundsZoom(bounds));
 
+    // 8) Legende: kun fylker som har data, format "Navn: prosent %"
+    const legend = L.control({ position: 'bottomright' });
 
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div');
+      div.style.cssText =
+        'background:#000c;color:#fff;padding:.7rem 1rem;border-radius:16px;font:14px system-ui;line-height:1.4;max-height:60vh;overflow:auto;';
 
+      let html = '<div style="font-weight:700;margin-bottom:.4rem">Fylker</div>';
 
+      // Lager liste fra dataMap (kun fylker med verdi)
+      const items = [...dataMap.entries()].map(([key, value]) => {
+        const name = nameByKey[key] || key; // kort visningsnavn
+        const fillColor = isTop4.has(key) ? '#dc2626' : color(value);
+        return { key, name, value, fillColor };
+      });
 
+      // Sorter etter verdi, synkende
+      items.sort((a, b) => b.value - a.value);
 
+      // Render rader: "Navn: 14,1 %"
+      for (const item of items) {
+        const valueText = `${item.value.toLocaleString('nb-NO')} %`;
+        html += `
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem">
+            <span style="display:inline-block;width:20px;height:14px;background:${item.fillColor};border:1px solid rgba(255,255,255,.2);"></span>
+            <span>${item.name}: ${valueText}</span>
+          </div>
+        `;
+      }
 
+      div.innerHTML = html;
+      return div;
+    };
 
+    legend.addTo(map);
+  });
+  </script>
 
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.simg-wrap');
+    const figure  = document.querySelector('.simg-figure');
+    const pctEl   = document.querySelector('#simg-pct');
+    if (!section || !figure || !pctEl) return;
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const section = document.querySelector('.simg-wrap');
-  const figure  = document.querySelector('.simg-figure');
-  const pctEl   = document.querySelector('#simg-pct');
-  if (!section || !figure || !pctEl) return;
+    const MAX = 0.70;  // 70 %
+    let range = 0, startY = 0, ticking = false;
 
-  const MAX = 0.70;  // 70%
-  let range = 0, startY = 0, ticking = false;
+    const offTop = el => { let y=0; while(el){ y += el.offsetTop||0; el = el.offsetParent; } return y; };
+    const clamp01 = v => v<0?0:v>1?1:v;
 
-  const offTop = el => { let y=0; while(el){ y += el.offsetTop||0; el = el.offsetParent; } return y; };
-  const clamp01 = v => v<0?0:v>1?1:v;
+    function measure(){
+      range  = Math.max(0, section.offsetHeight - window.innerHeight);
+      startY = offTop(section);
+      update();
+    }
 
-  function measure(){
-    range  = Math.max(0, section.offsetHeight - window.innerHeight);
-    startY = offTop(section);
-    update();
-  }
+    function update(){
+      const y   = window.scrollY - startY;
+      const p   = clamp01(range ? y / range : 0); // progresjon inne i seksjonen 0..1
+      const s   = p * MAX;                        // stopper ved 70 %
+      const deg = Math.round(s * 360);           // 0..252 grader
 
-  function update(){
-    const y   = window.scrollY - startY;
-    const p   = clamp01(range ? y / range : 0); // تقدم داخل القسم 0..1
-    const s   = p * MAX;                         // يوقف عند 70%
-    const deg = Math.round(s * 360);            // 0..252
+      figure.style.setProperty('--deg', deg + 'deg');   // roterer sektoren
+      // erstatter prosenttallet med en fast tekst som blir gradvis lysere
+      pctEl.textContent = 'Ifølge en rapport fra Riksrevisjonen har nesten 70% av unge mottakere av AAP psykiske lidelser.';
+      const brightness = 0 + s * -5;        // omtrent fra 0,6 til 1,4
+      pctEl.style.filter = `brightness(${brightness})`;
+      ticking = false;
+    }
 
-    figure.style.setProperty('--deg', deg + 'deg');   // ندير القطاع
-    // بدل النسبة المئوية بنص ثابت يزداد سطوعه تدريجيًا
-pctEl.textContent = 'Ifølge en rapport fra Riksrevisjonen har nesten 70% av unge mottakere av AAP psykiske lidelser.';               // غيّر النص حسب رغبتك
-const brightness = 0 + s * -5;        // من 0.6 إلى 1.4 تقريبًا
-pctEl.style.filter = `brightness(${brightness})`;
-    ticking = false;
-  }
+    function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }
 
-  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }
-
-  window.addEventListener('scroll', onScroll,  { passive:true });
-  window.addEventListener('resize', measure,   { passive:true });
-  measure();
-});
-</script>
-
-
+    window.addEventListener('scroll', onScroll,  { passive:true });
+    window.addEventListener('resize', measure,   { passive:true });
+    measure();
+  });
+  </script>
 </body>
 </html>

@@ -1838,6 +1838,7 @@ body.page-topic-a #video video {
 
 /* Leaflet-bakgrunn */
 .leaflet-container {
+  
   background: transparent !important;
 }
 
@@ -2049,9 +2050,18 @@ figure,
 #elbil-map,
 #finnmark-map,
 .leaflet-container {
-  background: #000 !important;
+  background: #6f1010 !important;
   border: none !important;
   box-shadow: none !important;
+}
+.leaflet-control {
+  background: #7a1818 !important; /* Use your page's background color */
+  color: #fff !important;
+  border-radius: 16px;
+  font: 14px / 1.4 system-ui;
+  max-height: 60vh;
+  overflow: auto;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
 
 /* fjern radius hvis helt flatt uttrykk ønskes */
